@@ -5,15 +5,15 @@ body {
 }
 @font-face {
     font-family: Century Gothic; /* Имя шрифта */
-    src: url(/fonts/GOTHIC.TTF); /* Путь к файлу со шрифтом */
+    src: url(../fonts/gothic.TTF); /* Путь к файлу со шрифтом */
    }
 @font-face {
     font-family: Century Gothic italic; /* Имя шрифта */
-    src: url(/fonts/GOTHICI.TTF); /* Путь к файлу со шрифтом */
+    src: url(../fonts/gothici.TTF); /* Путь к файлу со шрифтом */
    }
 
 canvas {
-/*  opacity: 0.5;*/
+  /*opacity: 0.5;*/
     position: absolute;
     z-index: -1;
     top: 0px;
@@ -89,7 +89,7 @@ canvas {
     height: 45px;
     animation: go-up-down 1s infinite alternate;
 }
-@keyframes go-up-down {   /* назовём анимацию: "go-left-right" */
+@keyframes go-up-down {
     from {
       top: 75%;               /* от: left: 0px */
     }
