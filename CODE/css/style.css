@@ -3,6 +3,10 @@ body {
   overflow-x: hidden;
     margin: 0;
 }
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  
 @font-face {
     font-family: Century Gothic; /* Имя шрифта */
     src: url(../fonts/gothic.TTF); /* Путь к файлу со шрифтом */
@@ -97,3 +101,4 @@ canvas {
       top: 77%; /* до: left: 100%-50px */
     }
   }
+  
