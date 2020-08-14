@@ -1,255 +1,150 @@
 <!DOCTYPE html>
 <html>
- <head>
-    <title>Upgradeyourself-сайт о саморазвитии</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
-    <link rel="stylesheet" href="./css/style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="Content-type" content="text/html;charset=windows-1251">
-    <meta http-equiv="Content-Language" content="ru">
-<!--   <meta name="description" content="//Upgradeyourself-сайт о саморазвитии">-->
-<!--   <meta name="keywords" content="саморазвитие, самосовершенствование,узнать что-то новое,развитие," />-->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- </head>
- <body>
-     <section class="header">
-         <div id="logo">
-             <span id="logo1">//</span>Upgradeyourself
-         </div>
-         <div id="cn"><canvas id="canvas"></canvas></div>
-        <script>
-"use strict";
 
-var canvas = document.getElementById('canvas'),
-  ctx = canvas.getContext('2d'),
-  w = canvas.width = window.innerWidth,
-  h = canvas.height = window.innerHeight,
-    
-  hue = 217,
-  stars = [],
-  count = 0,
-  maxStars = 1400;
+<head>
+  <title>Upgradeyourself-сайт о саморазвитии</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
+  <link rel="stylesheet" href="./css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta http-equiv="Content-type" content="text/html;charset=windows-1251">
+  <meta http-equiv="Content-Language" content="ru">
+  <!--   <meta name="description" content="//Upgradeyourself-сайт о саморазвитии">-->
+  <!--   <meta name="keywords" content="саморазвитие, самосовершенствование,узнать что-то новое,развитие," />-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
 
-// Cache gradient
-var canvas2 = document.createElement('canvas'),
-    ctx2 = canvas2.getContext('2d');
-    canvas2.width = 100;
-    canvas2.height = 100;
-var half = canvas2.width/2,
-    gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
-    gradient2.addColorStop(0.025, '#fff');
-    gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
-    gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
-    gradient2.addColorStop(1, 'transparent');
-
-    ctx2.fillStyle = gradient2;
-    ctx2.beginPath();
-    ctx2.arc(half, half, half, 0, Math.PI * 2);
-    ctx2.fill();
-
-// End cache
-
-function random(min, max) {
-  if (arguments.length < 2) {
-    max = min;
-    min = 0;
-  }
-  
-  if (min > max) {
-    var hold = max;
-    max = min;
-    min = hold;
-  }
-
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function maxOrbit(x,y) {
-  var max = Math.max(x,y),
-      diameter = Math.round(Math.sqrt(max*max + max*max));
-  return diameter/2;
-}
-
-var Star = function() {
-
-  this.orbitRadius = random(maxOrbit(w,h));
-  this.radius = random(60, this.orbitRadius) / 12;
-  this.orbitX = w / 2;
-  this.orbitY = h / 2;
-  this.timePassed = random(0, maxStars);
-  this.speed = random(this.orbitRadius) / 50000;
-  this.alpha = random(2, 10) / 10;
-
-  count++;
-  stars[count] = this;
-}
-
-Star.prototype.draw = function() {
-  var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
-      y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
-      twinkle = random(10);
-
-  if (twinkle === 1 && this.alpha > 0) {
-    this.alpha -= 0.05;
-  } else if (twinkle === 2 && this.alpha < 1) {
-    this.alpha += 0.05;
-  }
-
-  ctx.globalAlpha = this.alpha;
-    ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
-  this.timePassed += this.speed;
-}
-
-for (var i = 0; i < maxStars; i++) {
-  new Star();
-}
-
-function animation() {
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.globalAlpha = 0.8;
-    ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
-    ctx.fillRect(0, 0, w, h)
-  
-  ctx.globalCompositeOperation = 'lighter';
-  for (var i = 1, l = stars.length; i < l; i++) {
-    stars[i].draw();
-  };  
-  
-  window.requestAnimationFrame(animation);
-}
-
-animation();
-      </script>
-         <div id="maintext">Узнай что-нибудь новое о мире. Измени себя</div>
-         <div id="secondtext">Здесь ты найдешь много новой информации о мире, интересные факты и статьи.
-Сможешь расширить свой кругозор и эрудицию.</div>
-          <!--Modal: Login / Register Form-->
-<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog cascading-modal" role="document">
-    <!--Content-->
-    <div class="modal-content">
-
-      <!--Modal cascading tabs-->
-      <div class="modal-c-tabs">
-
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab"><i class="fas fa-user mr-1"></i>
-              Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab"><i class="fas fa-user-plus mr-1"></i>
-              Register</a>
-          </li>
-        </ul>
-
-        <!-- Tab panels -->
-        <div class="tab-content">
-          <!--Panel 7-->
-          <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
-
-            <!--Body-->
-            <div class="modal-body mb-1">
-              <div class="md-form form-sm mb-5">
-                <i class="fas fa-envelope prefix"></i>
-                <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
-                <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
-              </div>
-
-              <div class="md-form form-sm mb-4">
-                <i class="fas fa-lock prefix"></i>
-                <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
-                <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
-              </div>
-              <div class="text-center mt-2">
-                <button class="btn btn-info">Log in <i class="fas fa-sign-in ml-1"></i></button>
-              </div>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-              <div class="options text-center text-md-right mt-1">
-                <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
-                <p>Forgot <a href="#" class="blue-text">Password?</a></p>
-              </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-
-          </div>
-          <!--/.Panel 7-->
-
-          <!--Panel 8-->
-          <div class="tab-pane fade" id="panel8" role="tabpanel">
-
-            <!--Body-->
-            <div class="modal-body">
-              <div class="md-form form-sm mb-5">
-                <i class="fas fa-envelope prefix"></i>
-                <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
-                <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
-              </div>
-
-              <div class="md-form form-sm mb-5">
-                <i class="fas fa-lock prefix"></i>
-                <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
-                <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
-              </div>
-
-              <div class="md-form form-sm mb-4">
-                <i class="fas fa-lock prefix"></i>
-                <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
-                <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
-              </div>
-
-              <div class="text-center form-sm mt-2">
-                <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
-              </div>
-
-            </div>
-            <!--Footer-->
-            <div class="modal-footer">
-              <div class="options text-right">
-                <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
-              </div>
-              <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!--/.Panel 8-->
-        </div>
-
-      </div>
+<body>
+  <section class="header">
+    <div id="logo">
+      <span id="logo1">//</span>Upgradeyourself
     </div>
-    <!--/.Content-->
-  </div>
-</div>
-<!--Modal: Login / Register Form-->
+    <div id="cn"><canvas id="canvas"></canvas></div>
+    <script>
+      "use strict";
 
-<div class="myButton">
-  <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">Начать</a>
-</div>
-         <div id='arrows'><img src="../Icon/arrows down.svg" id="arrow"></div>
-         <script>
-             $(document).ready(function(){
-             var height = $(window).height();
-             $('#arrows').on('click',function(){
-             $(window).scrollTop(height);
-})
-});
+      var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        w = canvas.width = window.innerWidth,
+        h = canvas.height = window.innerHeight,
 
+        hue = 217,
+        stars = [],
+        count = 0,
+        maxStars = 1000;
 
-         </script>
-     </section>
-     
+      // Cache gradient
+      var canvas2 = document.createElement('canvas'),
+        ctx2 = canvas2.getContext('2d');
+      canvas2.width = 100;
+      canvas2.height = 100;
+      var half = canvas2.width / 2,
+        gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+      gradient2.addColorStop(0.025, '#fff');
+      gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+      gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+      gradient2.addColorStop(1, 'transparent');
 
+      ctx2.fillStyle = gradient2;
+      ctx2.beginPath();
+      ctx2.arc(half, half, half, 0, Math.PI * 2);
+      ctx2.fill();
 
-     <section class="information">
-      
-     </section>
- </body> 
+      // End cache
+
+      function random(min, max) {
+        if (arguments.length < 2) {
+          max = min;
+          min = 0;
+        }
+
+        if (min > max) {
+          var hold = max;
+          max = min;
+          min = hold;
+        }
+
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function maxOrbit(x, y) {
+        var max = Math.max(x, y),
+          diameter = Math.round(Math.sqrt(max * max + max * max));
+        return diameter / 2;
+      }
+
+      var Star = function () {
+
+        this.orbitRadius = random(maxOrbit(w, h));
+        this.radius = random(60, this.orbitRadius) / 12;
+        this.orbitX = w / 2;
+        this.orbitY = h / 2;
+        this.timePassed = random(0, maxStars);
+        this.speed = random(this.orbitRadius) / 50000;
+        this.alpha = random(2, 10) / 10;
+
+        count++;
+        stars[count] = this;
+      }
+
+      Star.prototype.draw = function () {
+        var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+          y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+          twinkle = random(10);
+
+        if (twinkle === 1 && this.alpha > 0) {
+          this.alpha -= 0.05;
+        } else if (twinkle === 2 && this.alpha < 1) {
+          this.alpha += 0.05;
+        }
+
+        ctx.globalAlpha = this.alpha;
+        ctx.drawImage(canvas2, x - this.radius / 2, y - this.radius / 2, this.radius, this.radius);
+        this.timePassed += this.speed;
+      }
+
+      for (var i = 0; i < maxStars; i++) {
+        new Star();
+      }
+
+      function animation() {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 0.8;
+        ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 1)';
+        ctx.fillRect(0, 0, w, h)
+
+        ctx.globalCompositeOperation = 'lighter';
+        for (var i = 1, l = stars.length; i < l; i++) {
+          stars[i].draw();
+        };
+
+        window.requestAnimationFrame(animation);
+      }
+
+      animation();
+    </script>
+    <div id="maintext">Узнай что-нибудь новое о мире. Измени себя</div>
+    <div id="secondtext">Здесь ты найдешь много новой информации о мире, интересные факты и статьи.
+      Сможешь расширить свой кругозор и эрудицию.</div>
+
+    <div class="myButton">
+      <a href="" data-toggle="modal" data-target="#elegantModalForm">Начать</a>
+    </div>
+    <div id='arrows'><img src="../Icon/arrows down.svg" id="arrow"></div>
+    <script>
+      $(document).ready(function () {
+        var height = $(window).height();
+        $('#arrows').on('click', function () {
+          $(window).scrollTop(height);
+        })
+      });
+    </script>
+  </section>
+
+  <section class="information">
+
+  </section>
+</body>
+
 </html>
