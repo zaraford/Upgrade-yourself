@@ -5,6 +5,8 @@
     <title>Upgradeyourself-сайт о саморазвитии</title>
     <link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Oswald:wght@200&family=Playfair+Display:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="Content-type" content="text/html;charset=windows-1251">
@@ -18,9 +20,9 @@
 </head>
 
 <body>
-    <section class="first page">
-        <div id="logo">
-            <span id="logo1">//</span>Upgradeyourself
+    <section class="fp">
+        <div id="logo" class="animate__animated animate__backInDown">
+            <span id="logo-sd-color">//</span>Upgradeyourself
         </div>
         <div id="cn"><canvas id="canvas"></canvas></div>
         <script>
@@ -125,13 +127,7 @@
             }
 
             animation();
-        </script>
-        <div id="maintext">Узнай что-нибудь новое о мире. Измени себя</div>
-        <div id="secondtext">Здесь ты найдешь много новой информации о мире, интересные факты и статьи.
-            Сможешь расширить свой кругозор и эрудицию.</div>
-        <div class="myButton"><a href="#">Начать</a></div>
-        <div id='arrows'><img src="../Icon/arrows down.svg" id="arrow"></div>
-        <script>
+
             $(document).ready(function() {
                 var height = $(window).height();
                 $('#arrows').on('click', function() {
@@ -139,9 +135,20 @@
                 })
             });
         </script>
+        <div id="ft-mn-tt" class="text animate__animated animate__fadeIn">Узнай что-нибудь новое о мире. Измени себя</div>
+        <div id="ft-sd-tt" class="text animate__animated animate__fadeIn">Здесь ты найдешь много новой информации о мире, интересные факты и статьи.
+            Сможешь расширить свой кругозор и эрудицию.</div>
+        <div class="myButton_div animate__animated animate__fadeIn"><button class="myButton">Начать</button></div>
+        <div id='arrows'><img src="../Icon/arrows down.svg" id="arrow" class="animate__animated animate__fadeIn"></div>
     </section>
-    <section class="second page">
-
+    <section class="sp">
+      <div id="sp-h">
+        <!-- <div class="bg-a-tt">
+          <div class="bg-tt fs">Более мудр во всякой науке тот, кто более точен и более способен научить выявлению причин. Аристотель</div>
+        </div> -->
+        <div class="text" id="sp-mn-tt">Что такое проект Upgradeyourself?</div>
+        <div class="text" id="sp-sd-tt">Мы уникальный проект о саморазвитии и прокачки себя как личности умной и образованной.Здесь собраны тренинги, курсы,подпорки книг и ютуб каналов можна сказать всё.</div>
+      </div>
     </section>
 </body>
 
