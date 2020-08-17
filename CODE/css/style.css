@@ -1,176 +1,179 @@
-
 body {
-    overflow-x : hidden;
-    margin     : 0;
+	overflow-x: hidden;
+	margin: 0;
 
-    background : #060e1b;
+	background: #060e1b;
 }
 
 @font-face {
-    font-family: Century Gothic; /* Имя шрифта */
-    src: url(../fonts/gothic.TTF); /* Путь к файлу со шрифтом */
+	font-family: Century Gothic; /* Имя шрифта */
+	src: url(../fonts/gothic.TTF); /* Путь к файлу со шрифтом */
 }
 
 @font-face {
-    font-family: Century Gothic italic; /* Имя шрифта */
-    src: url(../fonts/gothici.TTF); /* Путь к файлу со шрифтом */
+	font-family: Century Gothic italic; /* Имя шрифта */
+	src: url(../fonts/gothici.TTF); /* Путь к файлу со шрифтом */
 }
 
 canvas {
-  /*opacity: 0.5;*/
-    position : absolute;
-    top      : 0px;
-    right    : 0px;
-    bottom   : 0px;
-    left     : 0px;
-    z-index  : -1;
+	/*opacity: 0.5;*/
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	z-index: -1;
 }
 
-.fp{
-
+.fp {
 }
 
-.sp{
-    margin-top: 12.1%; 
+.sp {
+	margin-top: 12.1%;
 }
 
-#logo{
-    position    : absolute;
+#logo {
+	position: absolute;
 
-    width       : 100%;
-    padding-top : 50px;
+	width: 100%;
+	padding-top: 50px;
 
-    font-family : Century Gothic italic;
-    font-size   : 44px;
-    color       : white;
-    text-align  : center;
+	font-family: Century Gothic italic;
+	font-size: 44px;
+	color: white;
+	text-align: center;
 }
 
-#logo-sd-color{
-    font-size : 44px;
-    color     : #1D628B;
+#logo-sd-color {
+	font-size: 44px;
+	color: #1d628b;
 }
 
-.text{
-     font-family : Century Gothic;
-     color       : white;
+.text {
+	font-family: Century Gothic;
+	color: white;
 }
 
-#ft-mn-tt{
-    width       : 100%;
-    padding-top : 200px;
+#ft-mn-tt {
+	width: 100%;
+	padding-top: 200px;
 
-    font-size   : 45px;
-    text-align  : center;
+	font-size: 45px;
+	text-align: center;
 
-    animation-delay: 1.3s;
+	animation-delay: 1.3s;
 }
 
-#ft-sd-tt{
-    width       : 67.5%;
-    margin      : 0 auto;
-    padding-top : 50px;
+#ft-sd-tt {
+	width: 67.5%;
+	margin: 0 auto;
+	padding-top: 50px;
 
-    font-size   : 24px;
-    text-align  : center;
+	font-size: 24px;
+	text-align: center;
 
-    animation-delay: 1.5s;
+	animation-delay: 1.5s;
 }
 
-#sp-mn-tt{
-    font-size: 30px;
-    margin-left: 10%;
-    padding-top: 15%;
+#sp-mn-tt {
+	font-size: 30px;
+	margin-left: 10%;
+	padding-top: 15%;
 
-    text-align: left;
+	text-align: left;
 }
 
-#sp-sd-tt{
-    width: 37%;
-    margin-left: 10%;
-    padding-top: 3%;
-    
-    text-align: left;
+#sp-sd-tt {
+	width: 37%;
+	margin-left: 10%;
+	padding-top: 3%;
+
+	text-align: left;
 }
 
-.bg-a-tt{
-    z-index: 2;
+.bg-a-tt {
+	z-index: 2;
 }
 
-.bg-tt{
-    color: #505050;
-    font-size: 25px;
+.bg-tt {
+	color: #505050;
+	font-size: 25px;
 }
 
-.fs{
-     font-family: 'Fira Sans', sans-serif;
+.fs {
+	font-family: "Fira Sans", sans-serif;
 }
 
-.od{
-    font-family: 'Oswald', sans-serif;
+.od {
+	font-family: "Oswald", sans-serif;
 }
 
-.pd{
-    font-family: 'Playfair Display', serif;
+.pd {
+	font-family: "Playfair Display", serif;
 }
 
-.ro{
-    font-family: 'Roboto', sans-serif;
+.ro {
+	font-family: "Roboto", sans-serif;
 }
 
-.myButton_div{
-    padding-top : 135px;
-    text-align  : center;
+.myButton_div {
+	padding-top: 135px;
+	text-align: center;
 
-    animation-delay: 1.7s;
+	animation-delay: 1.7s;
 }
 
-.myButton{
-    display         : inline-block;
-
-    padding         : 21px 36px;
-
-    cursor          : pointer;
-    font-family     : Century Gothic;
-    font-size       : 33px;
-    color           : #ffffff;
-    text-decoration : none;
-    text-shadow     : 0px 1px 0px #2f6627;
-    background-color: unset;
-    border          : 2px solid;
-    border-color    : #73B1D6;
-    border-radius   : 50px;
+.myButton {
+	display: inline-block;
+	margin-top: 2em;
+	padding: 21px 36px;
+	outline: none;
+	font-family: Century Gothic;
+	font-size: 33px;
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #2f6627;
+	background-color: unset;
+	border: 2px solid;
+	border-color: #73b1d6;
+	border-radius: 50px;
 }
 
 .myButton:hover {
-    border-color : #1D628B;
+	border-color: #1d628b;
 }
 
 .myButton:active {
-    position : relative;
-    top      : 1px;
+	position: relative;
+	top: 1px;
 }
 
-#arrow{
-    width : 45px;
-    animation-delay: 1.9s;
+#arrow {
+	width: 45px;
+	animation-delay: 1.9s;
 }
 
 #arrows {
-    position    : absolute;
+	position: absolute;
 
-    height      : 45px;
-    width       : 100%;
-    padding-top : 100px;
+	height: 45px;
+	width: 100%;
+	padding-top: 10em;
 
-    text-align  : center;
+	text-align: center;
 
-    animation   : go-up-down 1.5s infinite;
-    animation-timing-function: linear;
+	animation: go-up-down 1.5s infinite;
+	animation-timing-function: linear;
 }
 
 @keyframes go-up-down {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-15px);
+	}
+	100% {
+		transform: translateY(0);
+	}
 }
