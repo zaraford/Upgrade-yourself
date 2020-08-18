@@ -9,6 +9,7 @@ body {
 }
 
 @font-face {
+<<<<<<< HEAD
     font-family: Century Gothic;
     /* Имя шрифта */
     src: url(../fonts/gothic.TTF);
@@ -20,6 +21,19 @@ body {
     /* Имя шрифта */
     src: url(../fonts/gothici.TTF);
     /* Путь к файлу со шрифтом */
+=======
+	font-family: Century Gothic;
+	/* Имя шрифта */
+	src: url(../fonts/gothic.TTF);
+	/* Путь к файлу со шрифтом */
+}
+
+@font-face {
+	font-family: Century Gothic italic;
+	/* Имя шрифта */
+	src: url(../fonts/gothici.TTF);
+	/* Путь к файлу со шрифтом */
+>>>>>>> b9eea9a... add last login\sing-up pop-up & some icons & style_login.css
 }
 
 canvas {
@@ -261,6 +275,7 @@ form .forgot-pass a:hover {
     text-decoration: underline;
 }
 
+<<<<<<< HEAD
 form .btn {
     margin: 30px 0;
     height: 45px;
@@ -283,6 +298,20 @@ form .btn .inner {
             #56d8e4,
             #0a1825);
     transition: all 0.4s;
+=======
+@keyframes go-up-down {
+	0% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-15px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+>>>>>>> b9eea9a... add last login\sing-up pop-up & some icons & style_login.css
 }
 
 form .btn:hover .inner {

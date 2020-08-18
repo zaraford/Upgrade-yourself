@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
 <head>
   <title>Upgradeyourself-сайт о саморазвитии</title>
@@ -180,3 +181,194 @@
 </body>
 
 </html>
+=======
+	<head>
+		<title>Upgradeyourself-сайт о саморазвитии</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Oswald:wght@200&family=Playfair+Display:wght@500&family=Roboto:wght@500&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+		/>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"
+		/>
+		<meta http-equiv="Content-type" content="text/html;charset=windows-1251" />
+		<meta http-equiv="Content-Language" content="ru" />
+		<!--   <meta name="description" content="//Upgradeyourself-сайт о саморазвитии">-->
+		<!--   <meta name="keywords" content="саморазвитие, самосовершенствование,узнать что-то новое,развитие," />-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script>
+			document.write(
+				'<script src="http://' +
+					(location.host || "localhost").split(":")[0] +
+					':35729/livereload.js?snipver=1"></' +
+					"script>"
+			);
+		</script>
+	</head>
+
+	<body>
+		<section class="fp">
+			<div id="logo" class="animate__animated animate__backInDown">
+				<span id="logo-sd-color">//</span>Upgradeyourself
+			</div>
+			<div id="cn"><canvas id="canvas"></canvas></div>
+			<script>
+				"use strict";
+
+				var canvas = document.getElementById("canvas"),
+					ctx = canvas.getContext("2d"),
+					w = (canvas.width = window.innerWidth),
+					h = (canvas.height = window.innerHeight),
+					hue = 217,
+					stars = [],
+					count = 0,
+					maxStars = 500;
+
+				// Cache gradient
+				var canvas2 = document.createElement("canvas"),
+					ctx2 = canvas2.getContext("2d");
+				canvas2.width = 100;
+				canvas2.height = 100;
+				var half = canvas2.width / 2,
+					gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+				gradient2.addColorStop(0.025, "#fff");
+				gradient2.addColorStop(0.1, "hsl(" + hue + ", 61%, 33%)");
+				gradient2.addColorStop(0.25, "hsl(" + hue + ", 64%, 6%)");
+				gradient2.addColorStop(1, "transparent");
+
+				ctx2.fillStyle = gradient2;
+				ctx2.beginPath();
+				ctx2.arc(half, half, half, 0, Math.PI * 2);
+				ctx2.fill();
+
+				// End cache
+
+				function random(min, max) {
+					if (arguments.length < 2) {
+						max = min;
+						min = 0;
+					}
+
+					if (min > max) {
+						var hold = max;
+						max = min;
+						min = hold;
+					}
+
+					return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+
+				function maxOrbit(x, y) {
+					var max = Math.max(x, y),
+						diameter = Math.round(Math.sqrt(max * max + max * max));
+					return diameter / 2;
+				}
+
+				var Star = function () {
+					this.orbitRadius = random(maxOrbit(w, h));
+					this.radius = random(60, this.orbitRadius) / 12;
+					this.orbitX = w / 2;
+					this.orbitY = h / 2;
+					this.timePassed = random(0, maxStars);
+					this.speed = random(this.orbitRadius) / 50000;
+					this.alpha = random(2, 10) / 10;
+
+					count++;
+					stars[count] = this;
+				};
+
+				Star.prototype.draw = function () {
+					var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+						y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+						twinkle = random(10);
+
+					if (twinkle === 1 && this.alpha > 0) {
+						this.alpha -= 0.05;
+					} else if (twinkle === 2 && this.alpha < 1) {
+						this.alpha += 0.05;
+					}
+
+					ctx.globalAlpha = this.alpha;
+					ctx.drawImage(
+						canvas2,
+						x - this.radius / 2,
+						y - this.radius / 2,
+						this.radius,
+						this.radius
+					);
+					this.timePassed += this.speed;
+				};
+
+				for (var i = 0; i < maxStars; i++) {
+					new Star();
+				}
+
+				function animation() {
+					ctx.globalCompositeOperation = "source-over";
+					ctx.globalAlpha = 0.8;
+					ctx.fillStyle = "hsla(" + hue + ", 64%, 6%, 1)";
+					ctx.fillRect(0, 0, w, h);
+
+					ctx.globalCompositeOperation = "lighter";
+					for (var i = 1, l = stars.length; i < l; i++) {
+						stars[i].draw();
+					}
+
+					window.requestAnimationFrame(animation);
+				}
+
+				animation();
+
+				$(document).ready(function () {
+					var height = $(window).height();
+					$("#arrows").on("click", function () {
+						$(window).scrollTop(height);
+					});
+				});
+			</script>
+			<div id="ft-mn-tt" class="text animate__animated animate__fadeIn">
+				Узнай что-нибудь новое о мире. Измени себя
+			</div>
+			<div id="ft-sd-tt" class="text animate__animated animate__fadeIn">
+				Здесь ты найдешь много новой информации о мире, интересные факты и статьи. Сможешь
+				расширить свой кругозор и эрудицию.
+			</div>
+			<div class="myButton_div animate__animated animate__fadeIn">
+				<button class="myButton" onclick="location.href='login.html'" style="cursor: pointer;">
+					Начать
+				</button>
+			</div>
+			<div id="arrows">
+				<img
+					src="../Icon/arrows down.svg"
+					id="arrow"
+					class="animate__animated animate__fadeIn"
+				/>
+			</div>
+		</section>
+		<section class="sp">
+			<div id="sp-h">
+				<!-- <div class="bg-a-tt">
+          <div class="bg-tt fs">Более мудр во всякой науке тот, кто более точен и более способен научить выявлению причин. Аристотель</div>
+        </div> -->
+				<div class="text" id="sp-mn-tt">
+					Что такое проект Upgradeyourself?
+				</div>
+				<div class="text" id="sp-sd-tt">
+					Мы уникальный проект о саморазвитии и прокачки себя как личности умной и
+					образованной.Здесь собраны тренинги, курсы,подпорки книг и ютуб каналов можна сказать
+					всё.
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
+>>>>>>> b9eea9a... add last login\sing-up pop-up & some icons & style_login.css
