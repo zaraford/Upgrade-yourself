@@ -1,189 +1,292 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Upgradeyourself-сайт о саморазвитии</title>
-		<link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
-		<link rel="stylesheet" href="./css/style.css" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Oswald:wght@200&family=Playfair+Display:wght@500&family=Roboto:wght@500&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-		/>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no"
-		/>
-		<meta http-equiv="Content-type" content="text/html;charset=windows-1251" />
-		<meta http-equiv="Content-Language" content="ru" />
-		<!--   <meta name="description" content="//Upgradeyourself-сайт о саморазвитии">-->
-		<!--   <meta name="keywords" content="саморазвитие, самосовершенствование,узнать что-то новое,развитие," />-->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script>
-			document.write(
-				'<script src="http://' +
-					(location.host || "localhost").split(":")[0] +
-					':35729/livereload.js?snipver=1"></' +
-					"script>"
-			);
-		</script>
-	</head>
 
-	<body>
-		<section class="fp">
-			<div id="logo" class="animate__animated animate__backInDown">
-				<span id="logo-sd-color">//</span>Upgradeyourself
-			</div>
-			<div id="cn"><canvas id="canvas"></canvas></div>
-			<script>
-				"use strict";
+<head>
+    <title>Upgradeyourself-сайт о саморазвитии</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../Icon/favicon.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@1,300&family=Oswald:wght@200&family=Playfair+Display:wght@500&family=Roboto:wght@500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html;charset=windows-1251" />
+    <meta http-equiv="Content-Language" content="ru" />
+    <!--   <meta name="description" content="//Upgradeyourself-сайт о саморазвитии">-->
+    <!--   <meta name="keywords" content="саморазвитие, самосовершенствование,узнать что-то новое,развитие," />-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/b405269f95.js" crossorigin="anonymous"></script>
+    <script>
+        document.write(
+            '<script src="http://' +
+            (location.host || "localhost").split(":")[0] +
+            ':35729/livereload.js?snipver=1"></' +
+            "script>"
+        );
+    </script>
+</head>
 
-				var canvas = document.getElementById("canvas"),
-					ctx = canvas.getContext("2d"),
-					w = (canvas.width = window.innerWidth),
-					h = (canvas.height = window.innerHeight),
-					hue = 217,
-					stars = [],
-					count = 0,
-					maxStars = 1200;
+<body>
+    <section class="fp">
+        <div id="logo" class="animate__animated animate__backInDown">
+            <span id="logo-sd-color">//</span>Upgradeyourself
+        </div>
+        <div id="cn"><canvas id="canvas"></canvas></div>
+        <script>
+            "use strict";
 
-				// Cache gradient
-				var canvas2 = document.createElement("canvas"),
-					ctx2 = canvas2.getContext("2d");
-				canvas2.width = 100;
-				canvas2.height = 100;
-				var half = canvas2.width / 2,
-					gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
-				gradient2.addColorStop(0.025, "#fff");
-				gradient2.addColorStop(0.1, "hsl(" + hue + ", 61%, 33%)");
-				gradient2.addColorStop(0.25, "hsl(" + hue + ", 64%, 6%)");
-				gradient2.addColorStop(1, "transparent");
+            var canvas = document.getElementById("canvas"),
+                ctx = canvas.getContext("2d"),
+                w = (canvas.width = window.innerWidth),
+                h = (canvas.height = window.innerHeight),
+                hue = 217,
+                stars = [],
+                count = 0,
+                maxStars = 600;
 
-				ctx2.fillStyle = gradient2;
-				ctx2.beginPath();
-				ctx2.arc(half, half, half, 0, Math.PI * 2);
-				ctx2.fill();
+            // Cache gradient
+            var canvas2 = document.createElement("canvas"),
+                ctx2 = canvas2.getContext("2d");
+            canvas2.width = 100;
+            canvas2.height = 100;
+            var half = canvas2.width / 2,
+                gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
+            gradient2.addColorStop(0.025, "#fff");
+            gradient2.addColorStop(0.1, "hsl(" + hue + ", 61%, 33%)");
+            gradient2.addColorStop(0.25, "hsl(" + hue + ", 64%, 6%)");
+            gradient2.addColorStop(1, "transparent");
 
-				// End cache
+            ctx2.fillStyle = gradient2;
+            ctx2.beginPath();
+            ctx2.arc(half, half, half, 0, Math.PI * 2);
+            ctx2.fill();
 
-				function random(min, max) {
-					if (arguments.length < 2) {
-						max = min;
-						min = 0;
-					}
+            // End cache
 
-					if (min > max) {
-						var hold = max;
-						max = min;
-						min = hold;
-					}
+            function random(min, max) {
+                if (arguments.length < 2) {
+                    max = min;
+                    min = 0;
+                }
 
-					return Math.floor(Math.random() * (max - min + 1)) + min;
-				}
+                if (min > max) {
+                    var hold = max;
+                    max = min;
+                    min = hold;
+                }
 
-				function maxOrbit(x, y) {
-					var max = Math.max(x, y),
-						diameter = Math.round(Math.sqrt(max * max + max * max));
-					return diameter / 2;
-				}
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
 
-				var Star = function () {
-					this.orbitRadius = random(maxOrbit(w, h));
-					this.radius = random(60, this.orbitRadius) / 12;
-					this.orbitX = w / 2;
-					this.orbitY = h / 2;
-					this.timePassed = random(0, maxStars);
-					this.speed = random(this.orbitRadius) / 50000;
-					this.alpha = random(2, 10) / 10;
+            function maxOrbit(x, y) {
+                var max = Math.max(x, y),
+                    diameter = Math.round(Math.sqrt(max * max + max * max));
+                return diameter / 2;
+            }
 
-					count++;
-					stars[count] = this;
-				};
+            var Star = function() {
+                this.orbitRadius = random(maxOrbit(w, h));
+                this.radius = random(60, this.orbitRadius) / 12;
+                this.orbitX = w / 2;
+                this.orbitY = h / 2;
+                this.timePassed = random(0, maxStars);
+                this.speed = random(this.orbitRadius) / 50000;
+                this.alpha = random(2, 10) / 10;
 
-				Star.prototype.draw = function () {
-					var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
-						y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
-						twinkle = random(10);
+                count++;
+                stars[count] = this;
+            };
 
-					if (twinkle === 1 && this.alpha > 0) {
-						this.alpha -= 0.05;
-					} else if (twinkle === 2 && this.alpha < 1) {
-						this.alpha += 0.05;
-					}
+            Star.prototype.draw = function() {
+                var x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX,
+                    y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY,
+                    twinkle = random(10);
 
-					ctx.globalAlpha = this.alpha;
-					ctx.drawImage(
-						canvas2,
-						x - this.radius / 2,
-						y - this.radius / 2,
-						this.radius,
-						this.radius
-					);
-					this.timePassed += this.speed;
-				};
+                if (twinkle === 1 && this.alpha > 0) {
+                    this.alpha -= 0.05;
+                } else if (twinkle === 2 && this.alpha < 1) {
+                    this.alpha += 0.05;
+                }
 
-				for (var i = 0; i < maxStars; i++) {
-					new Star();
-				}
+                ctx.globalAlpha = this.alpha;
+                ctx.drawImage(
+                    canvas2,
+                    x - this.radius / 2,
+                    y - this.radius / 2,
+                    this.radius,
+                    this.radius
+                );
+                this.timePassed += this.speed;
+            };
 
-				function animation() {
-					ctx.globalCompositeOperation = "source-over";
-					ctx.globalAlpha = 0.8;
-					ctx.fillStyle = "hsla(" + hue + ", 64%, 6%, 1)";
-					ctx.fillRect(0, 0, w, h);
+            for (var i = 0; i < maxStars; i++) {
+                new Star();
+            }
 
-					ctx.globalCompositeOperation = "lighter";
-					for (var i = 1, l = stars.length; i < l; i++) {
-						stars[i].draw();
-					}
+            function animation() {
+                ctx.globalCompositeOperation = "source-over";
+                ctx.globalAlpha = 0.8;
+                ctx.fillStyle = "hsla(" + hue + ", 64%, 6%, 1)";
+                ctx.fillRect(0, 0, w, h);
 
-					window.requestAnimationFrame(animation);
-				}
+                ctx.globalCompositeOperation = "lighter";
+                for (var i = 1, l = stars.length; i < l; i++) {
+                    stars[i].draw();
+                }
 
-				animation();
+                window.requestAnimationFrame(animation);
+            }
 
-				$(document).ready(function () {
-					var height = $(window).height();
-					$("#arrows").on("click", function () {
-						$(window).scrollTop(height);
-					});
-				});
-			</script>
-			<div id="ft-mn-tt" class="text animate__animated animate__fadeIn">
-				Узнай что-нибудь новое о мире. Измени себя
-			</div>
-			<div id="ft-sd-tt" class="text animate__animated animate__fadeIn">
-				Здесь ты найдешь много новой информации о мире, интересные факты и статьи. Сможешь
-				расширить свой кругозор и эрудицию.
-			</div>
-			<div class="myButton_div animate__animated animate__fadeIn">
-				<button class="myButton" type="submit">Начать</button>
-			</div>
-			<div id="arrows">
-				<img
-					src="../Icon/arrows down.svg"
-					id="arrow"
-					class="animate__animated animate__fadeIn"
-				/>
-			</div>
-		</section>
-		<section class="sp">
-			<div id="sp-h">
-				<!-- <div class="bg-a-tt">
+            animation();
+
+            jQuery(document).ready(function($) {
+                $('nav').on('click', function() {
+                    if ($(this).hasClass('down')) {
+                        var movePos = $(window).scrollTop() + $(window).height();
+                    }
+                    if ($(this).hasClass('top')) {
+                        var movePos = $(window).scrollTop() - $(window).height();
+                    }
+                    $('html, body').animate({
+                        scrollTop: movePos
+                    }, 600);
+                });
+            });
+
+            function popupon() {
+                document.getElementById('cn').style = 'filter: blur(5px); position: absolute; top: 0px; right: 0px ;bottom: 0px; left: 0px; z-index: -1;';
+                document.getElementById('container').style.display = 'block';
+                document.getElementById('ft-mn-tt').style.display = 'none';
+                document.getElementById('ft-sd-tt').style.display = 'none';
+                document.getElementById('myButton').style.display = 'none';
+                document.getElementById('arrows').style.display = 'none';
+                var element = document.getElementById("container");
+                element.classList.add("animate__fadeIn");
+                element.classList.remove("animate__fadeOut");
+            }
+
+            function popupoff() {
+                var element = document.getElementById("container");
+                element.classList.remove("animate__fadeIn");
+                var element = document.getElementById("ft-mn-tt");
+                element.classList.add("animate__fadeIn");
+                var element = document.getElementById("ft-sd-tt");
+                element.classList.add("animate__fadeIn");
+                var element = document.getElementById("myButton");
+                element.classList.add("animate__fadeIn");
+                var element = document.getElementById("arrows");
+                element.classList.add("animate__fadeIn");
+                var element = document.getElementById("container");
+                element.classList.add("animate__fadeOut");
+                setTimeout(delay, 400);
+                setTimeout(delay_blur, 500);
+                function delay_blur(){
+                  document.getElementById('cn').style = 'filter: blur(0px);position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: -1;';
+                }
+                function delay(){
+                document.getElementById('container').style.display = 'none';
+                document.getElementById('ft-mn-tt').style.display = 'block';
+                document.getElementById('ft-sd-tt').style.display = 'block';
+                document.getElementById('myButton').style.display = 'inline-block';
+                document.getElementById('arrows').style.display = 'block';
+                }
+            }
+        </script>
+        <div id="ft-mn-tt" class="text animate__animated">
+            Узнай что-нибудь новое о мире. Измени себя
+        </div>
+        <div id="ft-sd-tt" class="text animate__animated">
+            Здесь ты найдешь много новой информации о мире, интересные факты и статьи. Сможешь
+            расширить свой кругозор и эрудицию.
+        </div>
+        <div class="myButton_div ">
+            <button onclick="popupon()" id="myButton" type="submit">Начать</button>
+        </div>
+        <div class="container animate__animated" id="container">
+            <div class="form-container sign-up-container">
+                <form class="con-form" action="#">
+                    <h1>Создать аккаунт</h1>
+                    <div class="social-container">
+                        <a class="con-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-twitter"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-vk"></i></a>
+                    </div>
+                    <span class="con-span">или используйте свою электронную почту для регистрации</span>
+                    <input class="con-input" type="text" placeholder="Имя" />
+                    <input class="con-input" type="email" placeholder="Почта" />
+                    <input class="con-input" type="password" placeholder="Пароль" />
+                    <button class="con-button" style="cursor: pointer;">Зарегистрироваться</button>
+                    <a onclick="popupoff()" class="close con-a"></a>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form class="con-form" action="#">
+                    <h1 class="con-h1">Войти</h1>
+                    <div class="social-container">
+                        <a class="con-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-twitter"></i></a>
+                        <a class="con-a" href="#" class="social"><i class="fab fa-vk"></i></a>
+                    </div>
+                    <span class="con-span">или используйте свой аккаунт</span>
+                    <input class="con-input" type="email" placeholder="Почта" />
+                    <input class="con-input" type="password" placeholder="Пароль" />
+                    <a class="con-a" href="#">Забыли Ваш пароль?</a>
+                    <button class="con-button" style="cursor: pointer;">Войти</button>
+                    <a onclick="popupoff()" class="close con-a"></a>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1 class="con-h1">Добро пожаловать назад!</h1>
+                        <p class="con-p">Чтобы оставаться на связи с нами, войдите, указав свою личную информацию</p>
+                        <button class="ghost con-button" id="signIn" style="cursor: pointer;">Войти</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1 class="con-h1">Привет!</h1>
+                        <p class="con-p">Введите свои личные данные и начните путешествие с нами</p>
+                        <button class="ghost con-button" id="signUp" style="cursor: pointer;">
+                            Зарегистрироваться
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        const signUpButton = document.getElementById("signUp");
+        const signInButton = document.getElementById("signIn");
+        const container = document.getElementById("container");
+
+        signUpButton.addEventListener("click", () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener("click", () => {
+            container.classList.remove("right-panel-active");
+        });
+        </script>
+        <div id="arrows">
+            <nav class="down"><img src="../Icon/arrows down.svg" id="arrow" /></nav>
+        </div>
+    </section>
+    <!--
+    <section class="sp">
+      <div id="sp-h">
+         <div class="bg-a-tt">
           <div class="bg-tt fs">Более мудр во всякой науке тот, кто более точен и более способен научить выявлению причин. Аристотель</div>
-        </div> -->
-				<div class="text" id="sp-mn-tt">
-					Что такое проект Upgradeyourself?
-				</div>
-				<div class="text" id="sp-sd-tt">
-					Мы уникальный проект о саморазвитии и прокачки себя как личности умной и
-					образованной.Здесь собраны тренинги, курсы,подпорки книг и ютуб каналов можна сказать
-					всё.
-				</div>
-			</div>
-		</section>
-	</body>
+        </div> 
+        <div class="text" id="sp-mn-tt">
+          Что такое проект Upgradeyourself?
+        </div>
+        <div class="text" id="sp-sd-tt">
+          Мы уникальный проект о саморазвитии и прокачки себя как личности умной и
+          образованной.Здесь собраны тренинги, курсы,подпорки книг и ютуб каналов можна сказать
+          всё.
+        </div>
+      </div>
+    </section>
+-->
+</body>
+
 </html>
