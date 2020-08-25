@@ -29,7 +29,7 @@
 			<div id="cn"><canvas id="canvas"></canvas></div>
 			<script>
 				"use strict";
-
+				// CANVAS
 				var canvas = document.getElementById("canvas"),
 					ctx = canvas.getContext("2d"),
 					w = (canvas.width = window.innerWidth),
@@ -133,7 +133,9 @@
 				}
 
 				animation();
+				//END CANVAS
 
+				//ARROWS SCROLL
 				jQuery(document).ready(function ($) {
 					$("nav").on("click", function () {
 						if ($(this).hasClass("down")) {
@@ -150,7 +152,9 @@
 						);
 					});
 				});
+				//END ARROWS SCROLL
 
+				//CONTAINER
 				function popupon() {
 					document.getElementById("cn").style =
 						"filter: blur(5px); position: absolute; top: 0px; right: 0px ;bottom: 0px; left: 0px; z-index: -1;";
@@ -191,6 +195,7 @@
 						document.getElementById("arrows").style.display = "block";
 					}
 				}
+				//END CONTAINER
 			</script>
 			<div id="ft-mn-tt" class="text animate__animated">
 				Узнай что-нибудь новое о мире. Измени себя
@@ -221,7 +226,7 @@
 						<input class="con-input" type="email" placeholder="Почта" />
 						<input class="con-input" type="password" placeholder="Пароль" />
 						<button class="con-button" style="cursor: pointer;">Зарегистрироваться</button>
-						<a onclick="popupoff()" class="close con-a"></a>
+						<a onclick="popupoff()" class="close con-a" id="close"></a>
 					</form>
 				</div>
 				<div class="form-container sign-in-container">
@@ -238,9 +243,9 @@
 						<span class="con-span">или используйте свой аккаунт</span>
 						<input class="con-input" type="email" placeholder="Почта" />
 						<input class="con-input" type="password" placeholder="Пароль" />
-						<a class="con-a" href="#">Забыли Ваш пароль?</a>
+						<a class="con-a" id="con-pass-link" href="#">Забыли Ваш пароль?</a>
 						<button class="con-button" style="cursor: pointer;">Войти</button>
-						<a onclick="popupoff()" class="close con-a"></a>
+						<a onclick="popupoff()" class="close con-a" id="close"></a>
 					</form>
 				</div>
 				<div class="overlay-container">
@@ -268,12 +273,17 @@
 				const signUpButton = document.getElementById("signUp");
 				const signInButton = document.getElementById("signIn");
 				const container = document.getElementById("container");
+				const close = document.getElementById("close");
 
 				signUpButton.addEventListener("click", () => {
 					container.classList.add("right-panel-active");
 				});
 
 				signInButton.addEventListener("click", () => {
+					container.classList.remove("right-panel-active");
+				});
+
+				close.addEventListener("click", () => {
 					container.classList.remove("right-panel-active");
 				});
 			</script>
