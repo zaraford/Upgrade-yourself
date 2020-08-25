@@ -1,6 +1,5 @@
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat : 400,800");
-.close                                                          : before,
 
 @font-face {
     font-family: Century Gothic; /* Имя шрифта */
@@ -63,10 +62,11 @@ canvas {
 }
 
 .fp {
+    height: 100vh;
 }
 
 .sp {
-    margin-top : 12.1%;
+    height: 100vh;
 }
 
 #logo {
@@ -110,7 +110,7 @@ canvas {
     text-align  : center;
 }
 
-/*
+
 #sp-mn-tt {
     font-size: 30px;
     margin-left: 10%;
@@ -127,31 +127,6 @@ canvas {
     text-align: left;
 }
 
-.bg-a-tt {
-    z-index: 2;
-}
-
-.bg-tt {
-    color: #505050;
-    font-size: 25px;
-}
-
-.fs {
-    font-family: "Fira Sans", sans-serif;
-}
-
-.od {
-    font-family: "Oswald", sans-serif;
-}
-
-.pd {
-    font-family: "Playfair Display", serif;
-}
-
-.ro {
-    font-family: "Roboto", sans-serif;
-}
-*/
 .myButton_div {
     padding-top : 6%;
     text-align  : center;
@@ -470,4 +445,13 @@ canvas {
 }
 .animate__animated.animate__fadeOut {
   --animate-duration: 0.5s;
+}
+
+.sp-ph-bg{
+    float: right;
+}
+
+#sp-ph-bg{
+    height: 99vh;
+    z-index: 3;
 }
